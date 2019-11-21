@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AOIDoubleLinkedList.cs" />
     <Compile Include="AOIEntity.cs" />
+    <Compile Include="AOILinkedListNode.cs" />
     <Compile Include="AOIManager.cs" />
     <Compile Include="IAOIManager.cs" />
     <Compile Include="Program.cs" />

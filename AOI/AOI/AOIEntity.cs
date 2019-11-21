@@ -11,16 +11,20 @@ namespace AOI
         public ulong Id;
         public float X;
         public float Y;
+        public float Z;
+
+        public AOILinkedListNode AoiNode;
 
         public AOIEntityDelegate OnEnter;
         public AOIEntityDelegate OnLeave;
         public AOIEntityDelegate OnSelfEnter;
         public AOIEntityDelegate OnSelfLeave;
 
-        public Dictionary<ulong, AOIEntity> canViewEntityDic;
+        public Dictionary<ulong, AOIEntity> canViewEntityDic; 
 
         public AOIEntity()
         {
+            AoiNode = new AOILinkedListNode();
             canViewEntityDic = new Dictionary<ulong, AOIEntity>();
         }
 

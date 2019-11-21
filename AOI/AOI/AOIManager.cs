@@ -8,9 +8,10 @@ namespace AOI
 {
     public class AOIManager:IAOIManager
     {
-        private LinkedList<ulong> xList = new LinkedList<ulong>();
-        private LinkedList<ulong> yList = new LinkedList<ulong>();
-        private LinkedList<ulong> zList = new LinkedList<ulong>();
+        private AOIDoubleLinkedList xList = new AOIDoubleLinkedList();
+        private AOIDoubleLinkedList yList = new AOIDoubleLinkedList();
+        private AOIDoubleLinkedList zList = new AOIDoubleLinkedList();
+        private List<AOIEntity> entityList = new List<AOIEntity>();
 
         public float Radius { get; set; }
 
@@ -19,21 +20,37 @@ namespace AOI
             Radius = radius;
         }
 
+        //insert to list
         public void Enter(AOIEntity entity)
         {
-            throw new NotImplementedException();
+            entityList.Add(entity);
+            xList.Insert(entity.AoiNode);
+            yList.Insert(entity.AoiNode);
+            zList.Insert(entity.AoiNode);
+            CheckEnterMyAoi(entity);
+            CheckEnterOtherAoi(entity);
         }
 
+        //remove from list
         public void Leave(AOIEntity entity)
         {
-            throw new NotImplementedException();
+            entityList.Remove(entity);
         }
 
+        //on entity move
         public void Move(AOIEntity entity, float x, float y, float z)
         {
-            throw new NotImplementedException();
         }
 
+        private void CheckEnterOtherAoi(AOIEntity entity)
+        {
+            
+        }
+
+        private void CheckEnterMyAoi(AOIEntity entity)
+        {
+            
+        }
 
     }
 }
